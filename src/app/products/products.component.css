@@ -1,0 +1,10 @@
+/* Centrado de elementos en Angular material */
+table {
+    text-align: center !important;
+    width: 100%;
+}
+
+/* Centrado de encabezados */
+.mat-header-cell {
+    text-align: center;
+}

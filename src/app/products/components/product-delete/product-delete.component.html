@@ -1,0 +1,24 @@
+<h1 mat-dialog-title>
+Delete product: {{ product.name }}
+</h1>
+<div mat-dialog-content>
+    <p>
+    The product {{product.name}} will deleted. Are you sure?
+    </p>
+</div>
+<div mat-dialog-actions>
+    <button
+    mat-button
+    color="accent"
+    cdkFocusInitial
+    mat-dialog-close>
+    No, cancel
+    </button>
+    <button
+    type="submit"
+    color="primary"
+    mat-raised-button
+    [mat-dialog-close]="product.id">
+    Yes, I'm sure
+    </button>
+</div>

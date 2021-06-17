@@ -1,0 +1,176 @@
+<h1 mat-dialog-title>
+Products specitification
+</h1>
+<div mat-dialog-content>
+<form
+    [formGroup]="productForm"
+    (ngSubmit)="onSubmit()">
+    <input
+        type="hidden"
+        formControlName="id">
+    <mat-form-field appearance="outline">
+    <mat-label>Name</mat-label>
+    <input
+        required
+        matInput
+        type="text"
+        minlength="4"
+        maxlength="150"
+        formControlName="name">
+    <mat-hint>
+        Product name
+    </mat-hint>
+    <mat-error *ngIf="nameControl.hasError('required')">
+        Name is required
+    </mat-error>
+    <mat-error *ngIf="nameControl.hasError('minlength')">
+        The minimum length is 4 characters.
+    </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+    <mat-label>
+        Category
+    </mat-label>
+    <mat-select required formControlName="category">
+        <mat-option *ngFor="let category of categories" [value]="category.id">
+        {{ category.name }}
+        </mat-option>
+    </mat-select>
+    <!-- <input
+        matInput
+        type="text"
+        formControlName="category"
+        [matAutocomplete]="category">
+    <mat-autocomplete
+        #category="matAutocomplete"
+        [displayWith]="displayFn">
+        <mat-option *ngFor="let option of filteredCategories | async" [value]="option">
+        {{option.name}}
+        </mat-option>
+    </mat-autocomplete> -->
+    <mat-hint>
+        Product category
+    </mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+    <mat-label>
+        Brand
+    </mat-label>
+    <mat-select required formControlName="brand">
+        <mat-option *ngFor="let brand of brands" [value]="brand.id">
+        {{ brand.name }}
+        </mat-option>
+    </mat-select>
+    <!-- <input
+        matInput
+        type="text"
+        formControlName="brand"
+        [matAutocomplete]="brand">
+    <mat-autocomplete
+        #brand="matAutocomplete"
+        [displayWith]="displayFn">
+        <mat-option *ngFor="let option of filteredBrands | async" [value]="option">
+        {{option.name}}
+        </mat-option>
+    </mat-autocomplete> -->
+    <mat-hint>
+        Product brand
+    </mat-hint>
+    </mat-form-field>
+    <mat-checkbox
+    formControlName="isNew">
+    ¿is New?
+    </mat-checkbox>
+    <mat-form-field appearance="outline">
+    <mat-label>Current Price</mat-label>
+    <input
+        min="0"
+        required
+        matInput
+        step="0.01"
+        type="number"
+        formControlName="currentPrice">
+    <mat-hint>
+        Product current price
+    </mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+    <mat-label>Raw Price</mat-label>
+    <input
+        min="0"
+        required
+        matInput
+        step="0.01"
+        type="number"
+        formControlName="rawPrice">
+    <mat-hint>
+        Product raw price
+    </mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+    <mat-label>Discount</mat-label>
+    <input
+        min="0"
+        max="100"
+        step="1"
+        required
+        matInput
+        type="number"
+        formControlName="discount">
+    <mat-hint>
+        Product discount
+    </mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+    <mat-label>Model</mat-label>
+    <input
+        matInput
+        required
+        type="text"
+        maxlength="9"
+        formControlName="model">
+    <mat-hint>
+        Product model
+    </mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+    <mat-label>URL</mat-label>
+    <input
+        matInput
+        type="url"
+        maxlength="200"
+        formControlName="url">
+    <mat-hint>
+        Product URL
+    </mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+    <mat-label>Photo URL</mat-label>
+    <input
+        matInput
+        type="url"
+        maxlength="200"
+        formControlName="imageUrl">
+    <mat-hint>
+        Photo URL of product.
+    </mat-hint>
+    </mat-form-field>
+</form>
+</div>
+<div mat-dialog-actions>
+<button
+    mat-button
+    color="accent"
+    cdkFocusInitial
+    (click)="close()">
+    Close
+</button>
+<button
+    type="submit"
+    color="primary"
+    mat-raised-button
+    (click)="onSubmit()"
+    [disabled]="productForm.invalid">
+    Save
+</button>
+</div>

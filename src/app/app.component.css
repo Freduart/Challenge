@@ -1,0 +1,11 @@
+mat-form-field {
+    display:inline-flex;
+    width: 20%;
+}
+
+.centradoDiv{
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+

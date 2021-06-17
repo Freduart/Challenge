@@ -1,0 +1,71 @@
+<h1 mat-dialog-title>
+    {{ product.name | slice:0:20 }}
+  </h1>
+  <div mat-dialog-content>
+    <mat-list role="list">
+      <mat-list-item role="listitem">
+        <p>
+          <strong>
+            Nombre:
+          </strong>
+          {{ product.name }}
+        </p>
+      </mat-list-item>
+      <img [src]="product.imageUrl" [alt]="'Imange de: ' + product.name">
+      <mat-list-item role="listitem">
+        <p>
+          <strong>
+            Marca:
+          </strong>
+          {{ product.brand?.name }}
+        </p>
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <p>
+          <strong>
+            Categoría:
+          </strong>
+          {{ product.category?.name }}
+        </p>
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <p>
+          <strong>
+            Model:
+          </strong>
+          {{ product.model }}
+        </p>
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <p>
+          <strong>
+            Precio Actual:
+          </strong>
+          {{ product.currentPrice }}
+        </p>
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <p>
+          <strong>
+            Precio:
+          </strong>
+          {{ product.rawPrice }}
+        </p>
+      </mat-list-item>
+    </mat-list>
+  </div>
+  <div mat-dialog-actions>
+    <button
+      mat-button
+      color="primary"
+      [mat-dialog-close]="{ edit: true }">
+      Edit
+    </button>
+    <button
+      mat-button
+      color="accent"
+      cdkFocusInitial
+      (click)="close()">
+      Close
+    </button>
+  </div>
