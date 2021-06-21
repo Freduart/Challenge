@@ -1,6 +1,7 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Brand } from '@core/models/brand.model';
+
 
 @Component({
   selector: 'app-brands-list',
@@ -11,7 +12,12 @@ export class BrandsListComponent implements OnChanges {
 
   @Input()
   brands:Brand[]=[];
-
+  @Output()
+  brandDelete = new EventEmitter<Brand>();
+  @Output()
+  brandDetail = new EventEmitter<number>();
+  @Output()
+  brandUpdate = new EventEmitter<number>();
   displayedColumns=['id','name','actions'];
   dataSource:MatTableDataSource<Brand>=new MatTableDataSource();
 

@@ -54,7 +54,7 @@ export class ProductFormComponent implements OnInit {
         }
       });
     this.brandService
-      .getBrands(1, 50)
+      .getObjects(1, 50)
       .subscribe((result: Result<Brand>) => {
         this.brands = result.results;
         if (this.product) {

@@ -20,24 +20,24 @@
         <ng-container matColumnDef="actions">
             <th mat-header-cell *matHeaderCellDef> Actions </th>
             <td mat-cell *matCellDef="let brand">
-                <!-- <button
+                <button
                     mat-icon-button
                     aria-label="Ver"
-                    (click)="categoryDetail.emit(brand?.id)">
+                    (click)="brandDetail.emit(brand?.id)">
                     <mat-icon>visibility</mat-icon>
                 </button>
                 <button
                     mat-icon-button
                     aria-label="Editar"
-                    (click)="categoryUpdate.emit(brand?.id)">
+                    (click)="brandUpdate.emit(brand?.id)">
                     <mat-icon>edit</mat-icon>
                 </button>
                 <button
                     mat-icon-button
                     aria-label="Eliminar"
-                    (click)="categoryDelete.emit(brand)">
+                    (click)="brandDelete.emit(brand)">
                     <mat-icon>delete</mat-icon>
-                </button> -->
+                </button>
             </td>
         </ng-container>
     

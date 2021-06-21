@@ -17,12 +17,18 @@ import { BrandsRoutingModule } from './brands-routing.module';
 import { BrandsComponent } from './brands.component';
 import { BrandsContainer } from './containers/brands/brands.container';
 import { BrandsListComponent } from './components/brands-list/brands-list.component';
+import { BrandDetailComponent } from './components/brand-detail/brand-detail.component';
+import { BrandDeleteComponent } from './components/brand-delete/brand-delete.component';
+import { BrandFormComponent } from './components/brand-form/brand-form.component';
 
 @NgModule({
   declarations: [
     BrandsComponent,
     BrandsContainer,
     BrandsListComponent,    
+    BrandDetailComponent,
+    BrandDeleteComponent,
+    BrandFormComponent,    
   ],
   imports: [
     CommonModule,

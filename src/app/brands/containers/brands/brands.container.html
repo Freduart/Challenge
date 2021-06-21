@@ -5,6 +5,8 @@
     Add Categorie
 </button>
 <app-brands-list 
-    [brands]="result?.results">
-
+    [brands]="result?.results"
+    (brandDelete)="deleteBrand($event)"
+    (brandDetail)="detailBrand($event)"
+    (brandUpdate)="updateBrand($event)">
 </app-brands-list>

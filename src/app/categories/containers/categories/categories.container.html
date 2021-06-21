@@ -1,12 +1,13 @@
 <button
     color="primary"
     mat-raised-button
+    (click)="openForm()"
     >
     Add Categorie
 </button>
 <app-categories-list
     [categories]="result?.results"
-    (categoryUpdate)="deleteCategory($event)"
+    (categoryUpdate)="updateCategory($event)"
     (categoryDelete)="deleteCategory($event)"
     (categoryDetail)="detailCategory($event)">
 
