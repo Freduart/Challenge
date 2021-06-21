@@ -21,7 +21,9 @@ export class ProductsListComponent implements OnChanges {
 
   constructor() { }
 
-  ngOnChanges(changes: SimpleChanges): void {    
+  ngOnChanges(changes: SimpleChanges): void {        
+    console.log("Aqui esta el listado de productos");
+    console.log(this.dataSource);
     const { products } = changes;
     if (products) {      
       this.dataSource.data = this.products;

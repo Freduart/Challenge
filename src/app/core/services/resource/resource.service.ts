@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '@environments/environment';
@@ -29,5 +29,9 @@ export abstract class ResourceService<T extends Resource> {
 
   postObject(resource: T): Observable<T> {
     return this.httpClient.post<T>(`${this.API_URL}`, resource);
+  }
+
+  deleteObjet(id:number):Observable<HttpResponse<never>>{
+    return this.httpClient.delete<never>(`${this.API_URL}${id}`,{ observe: 'response'});
   }
 }

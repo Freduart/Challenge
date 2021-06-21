@@ -1,5 +1,5 @@
 import { Resource } from './resource.model';
 
-export interface Category extends Resource {
-    name: string;
+export interface Category extends Resource {    
+    name: string;    
 }

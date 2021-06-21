@@ -33,8 +33,8 @@ export class AppComponent implements OnInit, AfterViewInit {
           link: './products',
           index: 0          
       }, {
-          label: 'Variants',
-          link: './variants',
+          label: 'Categories',
+          link: './categories',
           index: 1
       }, {
           label: 'Brands',
@@ -64,12 +64,12 @@ export class AppComponent implements OnInit, AfterViewInit {
       this.result = result;
       this.dataSource = new MatTableDataSource<Product>(this.result?.results);
       this.dataSource._updateChangeSubscription();
-      this.dataSource.paginator = this.paginator;
+      
     });
   }
 
   ngAfterViewInit(): void {
-    this.dataSource.paginator = this.paginator;
+    
   }
 
   displayFn(product: Product): string {

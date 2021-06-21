@@ -1,0 +1,15 @@
+<button
+    color="primary"
+    mat-raised-button
+    >
+    Add Categorie
+</button>
+<app-categories-list
+    [categories]="result?.results"
+    (categoryUpdate)="deleteCategory($event)"
+    (categoryDelete)="deleteCategory($event)"
+    (categoryDetail)="detailCategory($event)">
+
+</app-categories-list>
+
+
