@@ -32,4 +32,19 @@ export class BrandsContainer implements OnInit {
     });
   }
 
+  detailBrand(id:number):void{
+    
+  }
+
+  updateBrand(id:number):void{
+
+  }
+
+  deleteBrand(brand:Brand):void{
+    this.openConfirmation(brand);
+  }
+
+  openConfirmation(brand:Brand):void{    
+  }
+
 }
