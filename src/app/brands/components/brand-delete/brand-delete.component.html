@@ -1,1 +1,24 @@
-<p>brand-delete works!</p>
+<h1 mat-dialog-title>
+    Delete product: {{ brand.name }}
+    </h1>
+    <div mat-dialog-content>
+        <p>
+        The product {{brand.name}} will deleted. Are you sure?
+        </p>
+    </div>
+    <div mat-dialog-actions>
+        <button
+        mat-button
+        color="accent"
+        cdkFocusInitial
+        mat-dialog-close>
+        No, cancel
+        </button>
+        <button
+        type="submit"
+        color="primary"
+        mat-raised-button
+        [mat-dialog-close]="brand.id">
+        Yes, I'm sure
+        </button>
+    </div>

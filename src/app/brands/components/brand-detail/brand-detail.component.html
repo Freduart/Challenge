@@ -1,1 +1,30 @@
-<p>brand-detail works!</p>
+<h1 mat-dialog-title>
+    {{ brand.name}}
+</h1>
+<div mat-dialog-content>
+    <mat-list role="list">
+        <mat-list-item role="listitem">
+        <p>
+            <strong>
+            Nombre:
+            </strong>
+            {{ brand.name }}
+        </p>        
+        </mat-list-item>
+    </mat-list>
+    </div>
+    <div mat-dialog-actions>
+    <button
+        mat-button
+        color="primary"
+        [mat-dialog-close]="{ edit: true }">
+        Edit
+    </button>
+    <button
+        mat-button
+        color="accent"
+        cdkFocusInitial
+        (click)="close()">
+        Close
+    </button>
+</div>

@@ -54,7 +54,7 @@ export class BrandsContainer implements OnInit {
 
   getBrandPage(pageEvent:PageEvent | number):void{
     const number=(typeof pageEvent==='number'?pageEvent:pageEvent.pageIndex)+1;
-    let pageSize=20;
+    let pageSize=100;
     if(typeof pageEvent!=='number'){
       pageSize=pageEvent.pageSize;
     }

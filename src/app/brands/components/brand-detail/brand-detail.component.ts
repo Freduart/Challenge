@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Brand } from '@core/models/brand.model';
 
 @Component({
   selector: 'app-brand-detail',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BrandDetailComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public brand:Brand, 
+    private dialogRef:MatDialogRef<BrandDetailComponent>
+  ) { }
 
   ngOnInit(): void {
   }
 
+  close():void{
+    this.dialogRef.close();
+  }
 }

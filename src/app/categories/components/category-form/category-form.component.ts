@@ -23,38 +23,33 @@ export class CategoryFormComponent implements OnInit {
     private categoryService: CategoryService,
     @Inject(MAT_DIALOG_DATA) public category : Category,
     private dialogRef: MatDialogRef<CategoryFormComponent, Category>
-  ) {
-    if(category){
-      this.title=`Editando ${category.name}`;
-    } else {
-      this.title="Agregar nueva categoria"
-    }
-  }
+  ) {    }
 
   ngOnInit(): void {
     console.log("Category Form Works!");
-    this.inicializarForm();
+    this.initForm(); 
     this.categoryService.getObjects().subscribe( (result : Result<Category>) => {
       this.categories = result.results;
     });
     this.filteredCategories = this.nameControl.valueChanges.pipe(
-      
+      /* Map operator Map operator takes an observable source as input. It applies a project function to each of the 
+      values emitted by the source observable and transforms it into a new value. It then emits the new value to the subscribers. */
       map((value) => (typeof value === 'string' ? value : value.name)),
       map((name) => (name ? this.filtrarCategorias(name, this.categories) : this.categories.slice()))
     );
     if(this.category){
       this.categoryForm.patchValue(this.category);
+      //PatchValuemethod to replace any properties defined in the object that have changed in the form model.
     }
   }
   
-  inicializarForm(){
+  initForm(){
+    // Inicializamos el form 
     this.categoryForm = this.formBuilder.group({
       id:[null],
-      name: ['', [Validators.required,Validators.minLength(3),Validators.maxLength(150)]],
-      main: [null],
+      name: ['', [Validators.required,Validators.minLength(3),Validators.maxLength(150)]],      
     });
   }
-
     
   onSubmit(): void {
     this.close(this.categoryForm.getRawValue());
@@ -64,16 +59,11 @@ export class CategoryFormComponent implements OnInit {
     this.dialogRef.close(category);
   }
 
-  displayFn(cat: Category): string {
-    return cat && cat.name ? cat.name : '';
-  }
-
   private filtrarCategorias(valor: string, categorias: Category[] ): Category[] {
     const valorLower = valor.toLowerCase();
     return categorias.filter((categoria) => (categoria.name.toLowerCase().includes(valorLower))
     );
-  }
-  get nameControl(): FormControl {
+  }get nameControl(): FormControl {
     return this.categoryForm.get('name') as FormControl;
   }
 }
